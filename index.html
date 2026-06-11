@@ -6,18 +6,46 @@
 </head>
 <body>
 
-    <div class="card">
-        <img src="me.jpeg"Foto Profil">
+     <div class="card">
+         
+         <img src="me.jpeg"Foto Profil">
 
-        <h1>Profil Saya</h1>
+         <h1>Profil Saya</h1>
+ 
+         <p>Nama: Saeful Ridwan</p>
 
-        <p>Nama: Saeful Ridwan</p>
+         <p>Saya sedang belajar menjadi Web3 Developer.</p>
+         <input type="text" id="namaInput" placeholder="Masukkan nama">
 
-        <p>Saya sedang belajar menjadi Web3 Developer.</p>
+         <button onclick="tampilkanNama()">Tampilkan Nama</button>
 
-        <a href="https://github.com/Jbluerome" target="_blank">
+         <p id="hasil"></p>
+
+         <button onclick="ubahTeks()">Klik Saya</button>
+          <p id="pesan">Saya sedang belajar JavaScript</p>
+
+         <a href="https://github.com/Jbluerome" target="_blank">
             GitHub Saya
-        </a>
+         </a>
+
+         <script>
+         function ubahTeks() {
+             alert("Halo Saeful! Selamat Belajar Java Script!");
+
+         document.getElementById("pesan").innerHTML =
+         "Saya akan menjadi Web3 Developer!";
+         }
+
+         function tampilkanNama() {
+
+         let nama =
+         document.getElementById("namaInput").value;
+
+          document.getElementById("hasil").innerHTML =
+          "Halo " + nama + "!";
+         }
+
+         </script>
 
     </div>
 

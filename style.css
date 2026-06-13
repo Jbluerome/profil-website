@@ -27,14 +27,14 @@ body {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-}
+ }
 
-a {
+ a {
     text-decoration: none;
     color: #0066cc;
     font-weight: bold;
-}
-button {
+ }
+ button {
     background-color: #007bff;
     color: white;
 
@@ -45,5 +45,10 @@ button {
     border-radius: 8px;
 
     cursor: pointer;
+ }
+
+ .selesai {
+    text-decoration: line-through;
+    color: gray;
 }
 }

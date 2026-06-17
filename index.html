@@ -139,6 +139,62 @@
 
           document.getElementById("todoInput").value = "";
          }
+         
+        let skill =
+    JSON.parse(localStorage.getItem("skillSaya")) || [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Git",
+    "GitHub"
+];
+
+function tampilkanSkill() {
+
+    let hasil = "";
+
+    for (let i = 0; i < skill.length; i++) {
+
+        hasil += `
+        <li>
+            ${skill[i]}
+            <button onclick="hapusSkill(${i})">❌</button>
+        </li>`;
+    }
+
+    document.getElementById("skillList").innerHTML = hasil;
+}
+function hapusSkill(index) {
+
+    skill.splice(index, 1);
+
+    localStorage.setItem(
+        "skillSaya",
+        JSON.stringify(skill)
+    );
+
+    tampilkanSkill();
+}
+
+
+function tambahSkill() {
+
+    let skillBaru =
+    document.getElementById("skillInput").value;
+
+    skill.push(skillBaru);
+
+    localStorage.setItem(
+        "skillSaya",
+        JSON.stringify(skill)
+    );
+
+    tampilkanSkill();
+
+    document.getElementById("skillInput").value = "";
+}
+    
+     tampilkanSkill();
      </script>
 
      <h2>Project Saya</h2>
@@ -157,6 +213,21 @@
      <h3>To-Do List</h3>
      <p>Aplikasi untuk menambah dan menghapus tugas.</p>
      </div>
+
+     <h2>Skill Saya</h2>
+
+     <ul id="skillList"></ul>
+
+     <button onclick="tampilkanSkill()">
+     Tampilkan Skill
+     </button>
+     <br><br>
+
+<input type="text" id="skillInput" placeholder="Tambah skill">
+
+<button onclick="tambahSkill()">
+    Tambah Skill
+</button>
 
           
 

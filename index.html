@@ -14,8 +14,8 @@
      <a href="#">Kontak</a>
      </nav>
 
-         <button onclick="toggleDarkMode()">
-          🌙 Dark Mode
+         <button id="darkModeBtn" onclick="toggleDarkMode()">
+         🌙 Dark Mode
          </button>
 
      <div class="card">
@@ -200,43 +200,53 @@ function tambahSkill() {
 
      document.body.classList.toggle("dark-mode");
 
+     let tombol =
+     document.getElementById("darkModeBtn");
+
      if (document.body.classList.contains("dark-mode")) {
+
         localStorage.setItem("darkMode", "aktif");
-     } else {
+
+        tombol.innerHTML = "☀️ Light Mode";
+
+    } else {
+
         localStorage.setItem("darkMode", "mati");
-     }
+
+        tombol.innerHTML = "🌙 Dark Mode";
+    }
 }
      window.onload = function () {
 
      tampilkanSkill();
-     const mode = localStorage.getItem("darkMode");
 
-     console.log("Dark Mode:", mode);
+     let tombol =
+     document.getElementById("darkModeBtn");
 
-     if (mode === "aktif") {
+     if (localStorage.getItem("darkMode") === "aktif") {
+
         document.body.classList.add("dark-mode");
-     }
+
+        tombol.innerHTML = "☀️ Light Mode";
+    }
+
 };
-  
+    
      console.log(localStorage.getItem("darkMode"));
+     function kirimPesan() {
+
+     let nama =
+     document.getElementById("namaPesan").value;
+
+     let pesan =
+     document.getElementById("pesanUser").value;
+
+     document.getElementById("hasilPesan").innerHTML =
+      "Terima kasih, " +
+     nama +
+    "! Pesan Anda telah diterima.";
+}
       </script>
-
-     <h2>Project Saya</h2>
-
-     <div class="project">
-     <h3>Kalkulator Sederhana</h3>
-     <p>Dibuat menggunakan HTML, CSS, dan JavaScript.</p>
-     </div>
-
-     <div class="project">
-     <h3>Game Tebak Angka</h3>
-     <p>Game sederhana dengan JavaScript dan Math.random.</p>
-     </div>
-
-     <div class="project">
-     <h3>To-Do List</h3>
-     <p>Aplikasi untuk menambah dan menghapus tugas.</p>
-     </div>
 
      <h2>Skill Saya</h2>
 
@@ -252,17 +262,60 @@ function tambahSkill() {
 <button onclick="tambahSkill()">
     Tambah Skill
 </button>
+<h2>Project Saya</h2>
 
+<div class="project-card">
+    <h3>Kalkulator Sederhana</h3>
+    <p>Menggunakan HTML, CSS, dan JavaScript.</p>
+</div>
+     <a href="https://github.com/Jbluerome/profil-website" target="_blank">
+        <button>Lihat Project</button>
+     </a>
+<div class="project-card">
+     <h3>Game Tebak Angka</h3>
+     <p>Game sederhana dengan JavaScript dan Math.random().</p>
+</div>
+      <a href="https://github.com/Jbluerome/profil-website" target="_blank">
+        <button>Lihat Project</button>
+     </a>
+<div class="project-card">
+     <h3>To-Do List</h3>
+     <p>Aplikasi untuk menambah dan menghapus tugas.</p>
+</div>
+      <a href="https://github.com/Jbluerome/profil-website" target="_blank">
+        <button>Lihat Project</button>
+     </a>
           
 
 </div>
      <h2>Kontak</h2>
 
-     <p>Email: saeful@gmail.com</p>
+     <p>Email: ridwansaeful936@gmail.com</p>
 
      <a href="https://github.com/Jbluerome" target="_blank">
      GitHub Saya
     </a>
+     <h2>Kirim Pesan</h2>
+     
+     <input
+     type="text"
+     id="namaPesan"
+     placeholder="Nama Anda">
+
+     <br><br>
+
+    <textarea
+     id="pesanUser"
+     placeholder="Tulis pesan..."
+    rows="4"></textarea>
+
+     <br><br>
+
+    <button onclick="kirimPesan()">
+     Kirim
+     </button>
+
+    <p id="hasilPesan"></p>
      <footer>
      <p>© 2026 Saeful Ridwan | Calon Web3 Developer 🚀</p>
      </footer>

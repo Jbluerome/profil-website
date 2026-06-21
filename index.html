@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
+     <div id="progress-bar"></div>
      <nav>
      <a href="#home">Home</a>
      <a href="#tentang">Tentang</a>
@@ -24,6 +24,11 @@
          <h1>Saeful Ridwan</h1>
         
           <p id="typing"></p>
+          <a href="#project">
+          <button class="hero-btn">
+         Lihat Project Saya
+          </button>
+         </a>
          <div id="tentang" class="fade-in">
          <h2>Tentang Saya</h2>
          <p>
@@ -318,6 +323,40 @@ function animateCounter(id, target) {
 animateCounter("projectCount", 3);
 animateCounter("skillCount", 5);
 animateCounter("portfolioCount", 1);
+
+     window.onscroll = function() {
+     
+    let scrollTop =
+    document.documentElement.scrollTop;
+
+    let scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+    let progress =
+    (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress-bar")
+    .style.width = progress + "%";
+
+    if (scrollTop > 300) {
+        document.getElementById("topBtn")
+        .style.display = "block";
+    } else {
+        document.getElementById("topBtn")
+        .style.display = "none";
+    }
+
+};
+     function scrollToTop() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
       </script>
 
      <h2>Skill Saya</h2>
@@ -526,5 +565,8 @@ animateCounter("portfolioCount", 1);
     <p>© 2026 Saeful Ridwan</p>
 
 </footer>
+<button id="topBtn" onclick="scrollToTop()">
+    ⬆
+</button>
 </body>
  </html>

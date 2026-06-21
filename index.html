@@ -22,10 +22,8 @@
          <img src="me.jpeg" alt="Foto Profil" class="profile-img">
 
          <h1>Saeful Ridwan</h1>
-
-          <p>
-         🚀 Front-End Developer in Progress
-         </p>
+        
+          <p id="typing"></p>
          <div id="tentang" class="fade-in">
          <h2>Tentang Saya</h2>
          <p>
@@ -287,6 +285,39 @@ function tambahSkill() {
      nama +
     "! Pesan Anda telah diterima.";
 }
+    const teks =
+"🚀 Front-End Developer in Progress";
+
+let index = 0;
+
+function ketik() {
+
+    if (index < teks.length) {
+
+        document.getElementById("typing").innerHTML +=
+        teks.charAt(index);
+
+        index++;
+
+        setTimeout(ketik, 100);
+    }
+}
+
+ketik();
+function animateCounter(id, target) {
+    let angka = 0;
+    let interval = setInterval(() => {
+       angka++;
+     document.getElementById(id).innerHTML = angka;
+      if (angka >= target) {
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
+animateCounter("projectCount", 3);
+animateCounter("skillCount", 5);
+animateCounter("portfolioCount", 1);
       </script>
 
      <h2>Skill Saya</h2>
@@ -311,6 +342,46 @@ function tambahSkill() {
      </div>
      <ul id="skillList"></ul>
 
+     <div id="timeline">
+
+    <h2>Perjalanan Belajar Coding</h2>
+
+    <div class="timeline-item">
+        <h3>Day 1 - Day 5</h3>
+        <p>Belajar HTML Dasar</p>
+    </div>
+
+    <div class="timeline-item">
+        <h3>Day 6 - Day 10</h3>
+        <p>Belajar CSS & JavaScript Dasar</p>
+    </div>
+
+    <div class="timeline-item">
+        <h3>Day 11 - Day 16</h3>
+        <p>Membangun Portfolio Website</p>
+     </div>
+     <div class="timeline-item">
+     <h3>Day 17</h3>
+     <p>Menambahkan Animasi, Statistik, dan Timeline Portfolio</p>
+    </div>
+
+     <div id="achievement">
+
+     <h2>Achievement</h2>
+
+    <div class="achievement-card">
+        <h3>📚 Belajar HTML, CSS, dan JavaScript</h3>
+        <p>Berhasil menyelesaikan portfolio website pertama.</p>
+     </div>
+
+     <div class="achievement-card">
+        <h3>🚀 Portfolio Online</h3>
+        <p>Berhasil deploy website menggunakan GitHub Pages.</p>
+     </div>
+
+</div>
+    </div>
+
      <button onclick="tampilkanSkill()">
      Tampilkan Skill
      </button>
@@ -327,17 +398,17 @@ function tambahSkill() {
      <div class="stats fade-in">
 
      <div class="stat-card">
-        <h3>3+</h3>
+        <h3 id="projectCount">0</h3>
         <p>Project</p>
      </div>
 
      <div class="stat-card">
-        <h3>5+</h3>
+        <h3 id="skillCount">0</h3>
         <p>Skill</p>
      </div>
 
      <div class="stat-card">
-        <h3>1</h3>
+        <h3 id="portfolioCount">0</h3>
         <p>Portfolio Website</p>
      </div>
 
@@ -437,8 +508,23 @@ function tambahSkill() {
      </button>
 
     <p id="hasilPesan"></p>
+
      <footer>
-     <p>© 2026 Saeful Ridwan | Calon Web3 Developer 🚀</p>
-     </footer>
+       <h3>Saeful Ridwan</h3>
+         <p>Front-End Developer in Progress 🚀</p>
+       <div class="social-links">
+     <a href="https://github.com/Jbluerome" target="_blank">
+            GitHub
+        </a>
+
+        <a href="https://www.youtube.com/@jbluerome" target="_blank">
+        YouTube
+        </a>
+
+    </div>
+
+    <p>© 2026 Saeful Ridwan</p>
+
+</footer>
 </body>
  </html>

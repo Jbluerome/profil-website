@@ -357,6 +357,79 @@ animateCounter("portfolioCount", 1);
 
 }
 
+    function bukaModal(judul, deskripsi, gambar) {
+       document.getElementById(
+        "projectModal"
+     ).style.display = "block";
+
+     document.getElementById(
+        "modalTitle"
+     ).innerHTML = judul;
+
+     document.getElementById(
+        "modalDesc"
+     ).innerHTML = deskripsi;
+
+     document.getElementById(
+        "modalImage"
+     ).src = gambar;
+
+}
+
+function tutupModal() {
+
+    document.getElementById(
+        "projectModal"
+    ).style.display = "none";
+}
+     window.onclick = function(event) {
+
+    let modal =
+    document.getElementById("projectModal");
+
+    if (event.target == modal) {
+
+        modal.style.display = "none";
+
+    }
+
+}
+
+    function filterProject(kategori) {
+
+    let projects =
+    document.querySelectorAll(
+        ".project-card"
+    );
+
+    projects.forEach(function(project) {
+
+        if (
+            kategori === "all"
+        ) {
+
+            project.style.display =
+            "block";
+
+        } else if (
+            project.classList.contains(
+                kategori
+            )
+        ) {
+
+            project.style.display =
+            "block";
+
+        } else {
+
+            project.style.display =
+            "none";
+
+        }
+
+    });
+
+}
       </script>
 
      <h2>Skill Saya</h2>
@@ -452,30 +525,47 @@ animateCounter("portfolioCount", 1);
      </div>
 
 </div>
+    
+     <div class="filter-buttons">
+
+     <button onclick="filterProject('all')">
+        Semua
+     </button>
+
+     <button onclick="filterProject('html')">
+        HTML/CSS
+     </button>
+
+     <button onclick="filterProject('js')">
+        JavaScript
+     </button>
+
+</div>
     <h2>Project Saya</h2>
   
     <div class="project-grid">
 
-        <div class="project-card">
+        <div class="project-card js">
 
             <img src="images/kalkulator.png.jpeg" alt="Kalkulator">
 
-            <h3>Kalkulator Sederhana</h3>
+         <h3>Kalkulator Sederhana</h3>
          <div class="tech-stack">
           <span>HTML</span>
          <span>CSS</span>
          <span>JavaScript</span>
          </div>
-
-         <p>Menggunakan HTML, CSS, dan JavaScript.</p>
-
-            <a href="https://github.com/Jbluerome/profil-website" target="_blank">
-                <button>Lihat Project</button>
-            </a>
-
+        
+         <button onclick="bukaModal(
+         'Kalkulator Sederhana',
+          'Dibuat menggunakan HTML, CSS, dan JavaScript.',
+         'images/kalkulator.png.jpeg'
+         )">
+         Preview
+         </button>
         </div>
 
-        <div class="project-card">
+        <div class="project-card js">
 
             <img src="images/tebak-angka.png.jpeg" alt="Game Tebak Angka">
 
@@ -485,15 +575,16 @@ animateCounter("portfolioCount", 1);
          <span>CSS</span>
          <span>JavaScript</span>
          </div>
-            <p>Game sederhana dengan JavaScript.</p>
+         <button onclick="bukaModal(
+          'Game Tebak Angka',
+          'Game sederhana menggunakan JavaScript.',
+         'images/tebak-angka.png.jpeg'
+         )">
+          Preview
+         </button>
+         </div>
 
-            <a href="https://github.com/Jbluerome/profil-website" target="_blank">
-                <button>Lihat Project</button>
-            </a>
-
-        </div>
-
-        <div class="project-card">
+        <div class="project-card js">
 
             <img src="images/todo-list.png.jpeg" alt="To Do List">
 
@@ -504,12 +595,13 @@ animateCounter("portfolioCount", 1);
              <span>JavaScript</span>
              <span>Local Storage</span>
              </div>
-            <p>Aplikasi untuk menambah dan menghapus tugas.</p>
-
-            <a href="https://github.com/Jbluerome/profil-website" target="_blank">
-                <button>Lihat Project</button>
-            </a>
-
+             <button onclick="bukaModal(
+             'To-Do List',
+             'Aplikasi manajemen tugas sederhana.',
+             'images/todo-list.png.jpeg'
+             )">
+             Preview
+             </button>
         </div>
 
     </div>
@@ -568,5 +660,19 @@ animateCounter("portfolioCount", 1);
 <button id="topBtn" onclick="scrollToTop()">
     ⬆
 </button>
+ <div id="projectModal" class="modal">
+
+    <div class="modal-content">
+         <span class="close" onclick="tutupModal()">
+            &times;
+         </span>
+         <img id="modalImage" src="" alt="Project Preview">
+
+         <h2 id="modalTitle"></h2>
+
+         <p id="modalDesc"></p>
+
+    </div>
+</div>
 </body>
  </html>
